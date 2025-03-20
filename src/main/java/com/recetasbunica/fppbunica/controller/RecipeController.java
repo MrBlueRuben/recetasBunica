@@ -1,5 +1,6 @@
 package com.recetasbunica.fppbunica.controller;
 
+import com.recetasbunica.fppbunica.controller.response.RecipeResponse;
 import com.recetasbunica.fppbunica.domain.Recipe;
 import com.recetasbunica.fppbunica.service.RecipeService;
 import org.apache.coyote.Response;
@@ -18,7 +19,7 @@ public class RecipeController {
     }
 
     @GetMapping("/recipe/{id}")
-    Recipe getRecipe(@PathVariable("id") String id){
+    RecipeResponse getRecipe(@PathVariable("id") String id){
         return recipeService.getRecipeById(id);
     }
 }

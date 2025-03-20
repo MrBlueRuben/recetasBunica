@@ -11,7 +11,7 @@ public record Recipe(
         String estimatedTime,
         String steps,
         String description,
-        String categoryId,
+        String category,
         List<Ingredient> ingredientList
 ) {
 }
