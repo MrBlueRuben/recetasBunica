@@ -1,7 +1,10 @@
 package com.recetasbunica.fppbunica.service;
 
-import com.recetasbunica.fppbunica.domain.Recipe;
+import com.recetasbunica.fppbunica.controller.response.RecipeResponse;
+
+import java.util.List;
 
 public interface RecipeService {
-    Recipe getRecipeById(String id);
+    RecipeResponse getRecipeById(String id);
+    List<RecipeResponse> getAllRecipes();
 }

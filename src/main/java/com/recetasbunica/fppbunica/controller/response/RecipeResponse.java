@@ -1,17 +1,17 @@
-package com.recetasbunica.fppbunica.domain;
+package com.recetasbunica.fppbunica.controller.response;
+
 
 import lombok.Builder;
 
 import java.util.List;
 
-@Builder(toBuilder = true)
-public record Recipe(
+@Builder
+public record RecipeResponse(
         String id,
         String title,
-        String estimatedTime,
         String steps,
         String description,
         String category,
-        List<Ingredient> ingredientList
+        List<IngredientResponse> ingredientList
 ) {
 }
