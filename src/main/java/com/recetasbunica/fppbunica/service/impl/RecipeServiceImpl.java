@@ -8,6 +8,7 @@ import com.recetasbunica.fppbunica.service.RecipeService;
 import com.recetasbunica.fppbunica.service.mapper.RecipeMapper;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -31,5 +32,17 @@ public class RecipeServiceImpl implements RecipeService {
             throw new IllegalArgumentException("Recipe with id " + id + " does not exit");
         }
 
+    }
+    @Override
+    public List<RecipeResponse> getAllRecipes() {
+        List<RecipeDTO> recipesDTO = recipeRepository.findAll();
+        //Convertir recipesDTO a un listado de recipes
+        List<Recipe> recipeList = recipesDTO.stream()
+                .map(recipeMapper::map)
+                .toList();
+        //Convertir recipeList a una Lista de RecipeResponse
+        return recipeList.stream()
+                        .map(recipeMapper::map)
+                        .toList();
     }
 }

@@ -14,11 +14,11 @@ import java.util.List;
 @Mapper(componentModel = "spring")
 public interface RecipeMapper {
 
-    RecipeResponse map (Recipe recipe);
+    RecipeResponse map(Recipe recipe);
 
     @Mapping(target = "category", source = "category.name")
     @Mapping(target = "ingredientList", source = "ingredientList", qualifiedByName = "mapIngredientList")
-    Recipe map (RecipeDTO recipeDTO);
+    Recipe map(RecipeDTO recipeDTO);
 
     @Named("mapIngredientList")
     default List<Ingredient> mapIngredientList(List<RecipeIngredientDTO> recipeIngredientDTOList){
